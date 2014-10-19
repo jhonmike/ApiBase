@@ -1,5 +1,5 @@
 {
-    "name": "2ends/api-base",
+    "name": "2ends/apigility-base",
     "description": "Abstracts help class for zend 2",
     "type": "library",
     "keywords": ["apigility","rest","base","resource","mapper","abstract","zend"],

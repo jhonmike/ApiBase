@@ -1,4 +1,4 @@
 ApiBase
 =======
 
-	php composer.phar require 2ends/api-base:dev-master
+	php composer.phar require 2ends/apigility-base:dev-master
