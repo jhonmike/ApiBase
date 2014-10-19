@@ -38,8 +38,16 @@ abstract class AbstractMapper
 			$res = $this->tableGateway->insert($entity->getArrayCopy());
 			$entity->id = $this->tableGateway->lastInsertValue;
 		} else {
-			$res = $this->tableGateway->update($entity->getArrayCopy(), $entity->id);
+			if ($this->fetchOne($id)) {
+				$res = $this->tableGateway->update($entity->getArrayCopy(), array('id' => $id));
+			}
 		}
 		return $entity->getArrayCopy();
+	}
+
+	public function delete($id)
+	{
+		$id = (int) $id;
+		return $this->tableGateway->delete(array('id' => $id));
 	}
 }

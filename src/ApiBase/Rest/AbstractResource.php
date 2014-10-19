@@ -38,7 +38,9 @@ abstract class AbstractResource extends AbstractResourceListener
      */
     public function delete($id)
     {
-        return new ApiProblem(405, 'The DELETE method has not been defined for individual resources');
+        if ($this->mapper->delete($id)) {
+            return array('success' => 1);
+        }
     }
 
     /**
@@ -106,7 +108,11 @@ abstract class AbstractResource extends AbstractResourceListener
      */
     public function update($id, $data)
     {
-        return new ApiProblem(405, 'The PUT method has not been defined for individual resources');
+        $entity = new $this->entity();
+        $entity->id = $id;
+        $entity->name = $data->name;
+        $entity->master = $data->master;
+        return $this->mapper->save($entity);
     }
 }
 
