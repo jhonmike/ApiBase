@@ -35,14 +35,14 @@ abstract class AbstractMapper
 	{
 		$id = (int) $entity->id;
 		if ($id === 0) {
-			$res = $this->tableGateway->insert($entity->getArrayCopy());
+			$res = $this->tableGateway->insert($entity->toArray());
 			$entity->id = $this->tableGateway->lastInsertValue;
 		} else {
 			if ($this->fetchOne($id)) {
-				$res = $this->tableGateway->update($entity->getArrayCopy(), array('id' => $id));
+				$res = $this->tableGateway->update($entity->toArray(), array('id' => $id));
 			}
 		}
-		return $entity->getArrayCopy();
+		return $entity->toArray();
 	}
 
 	public function delete($id)
