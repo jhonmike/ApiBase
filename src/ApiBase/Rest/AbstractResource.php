@@ -1,6 +1,6 @@
 <?php
 /**
-* Class AbstractMapper
+* Class AbstractResource
 *
 * @author Jhon Mike Soares <https://github.com/jhonmike>
 * @version 1.0
@@ -24,9 +24,7 @@ abstract class AbstractResource extends AbstractResourceListener
      */
     public function create($data)
     {
-        $entity = new $this->entity();
-        $entity->name = $data->name;
-        $entity->master = $data->master;
+        $entity = new $this->entity($data);
         return $this->mapper->save($entity);
     }
 
@@ -108,10 +106,8 @@ abstract class AbstractResource extends AbstractResourceListener
      */
     public function update($id, $data)
     {
-        $entity = new $this->entity();
+        $entity = new $this->entity($data);
         $entity->id = $id;
-        $entity->name = $data->name;
-        $entity->master = $data->master;
         return $this->mapper->save($entity);
     }
 }
