@@ -2,7 +2,7 @@
 /**
 * Class AbstractEntity
 *
-* @author Jhon Mike Soares <https://github.com/jhonmike>
+* @author Jhon Mike Soares <http://www.jhonmike.com.br>
 * @version 1.0
 */
 
