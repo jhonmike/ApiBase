@@ -14,9 +14,12 @@ abstract class AbstractMapper
 {
 	protected $tableGateway;
 
-	public function fetchAll()
+	public function fetchAll($data)
 	{
-		$resultSet = $this->tableGateway->select();
+		if (count($data) > 0) {
+			$resultSet = $this->tableGateway->select()->where($data);
+		} else
+			$resultSet = $this->tableGateway->select();
 		return $resultSet;
 	}
 
