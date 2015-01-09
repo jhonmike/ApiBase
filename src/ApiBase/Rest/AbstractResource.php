@@ -71,7 +71,7 @@ abstract class AbstractResource extends AbstractResourceListener
      */
     public function fetchAll($params = array())
     {
-        return $this->mapper->fetchAll();
+        return $this->mapper->fetchAll($params);
     }
 
     /**
