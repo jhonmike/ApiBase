@@ -20,12 +20,12 @@ abstract class AbstractEntity
     }
 
     public function exchangeArray(array $data)
-	{
+    {
         foreach ($data as $key => $value) {
             if(array_key_exists($key, $data))
                 $this->$key = empty($data[$key]) ? $this->$key : $data[$key];
         }
-	}
+    }
 
     public function exchangeObject($object)
     {

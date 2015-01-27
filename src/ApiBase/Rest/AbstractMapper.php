@@ -8,30 +8,37 @@
 
 namespace ApiBase\Rest;
 
-use Zend\Db\TableGateway\TableGateway;
-
 abstract class AbstractMapper
 {
+	protected $sql;
 	protected $tableGateway;
 
 	public function fetchAll($data)
 	{
-		if (count($data) > 0) {
-			$resultSet = $this->tableGateway->select()->where($data);
-		} else
-			$resultSet = $this->tableGateway->select();
-		return $resultSet;
+		$resultSet = $this->sql->select();
+
+		if (count($data) > 0)
+			$resultSet->where($data);
+		
+		//echo $this->sql->getSqlstringForSqlObject($resultSet); exit();
+
+		$statement = $this->sql->prepareStatementForSqlObject($resultSet);
+		return $statement->execute();
 	}
 
 	public function fetchOne($id)
 	{
 		$id = (int) $id;
-		$rowset = $this->tableGateway->select(array('id' => $id));
-		$row = $rowset->current();
-		if (!$row) {
+
+		$rowset = $this->sql->select()->where(array('id' => $id));
+		// echo $this->sql->getSqlstringForSqlObject($rowset); exit();
+		$statement = $this->sql->prepareStatementForSqlObject($rowset);
+		$row = $statement->execute();
+
+		if (!$row)
 			throw new \Exception("Item com o id {$id}, não encontrado");
-		}
-		return $row;
+
+		return $row->current();
 	}
 
 	public function save($entity)
@@ -47,7 +54,7 @@ abstract class AbstractMapper
 		}
 		return $entity->toArray();
 	}
-
+	
 	public function delete($id)
 	{
 		$id = (int) $id;
