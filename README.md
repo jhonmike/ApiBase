@@ -1,6 +1,6 @@
 ApiBase
 =======
 
-	php composer.phar require 2ends/apigility-base:dev-master
+	php composer.phar require jhonmike/apigility-base:dev-master
 
 --
