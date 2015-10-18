@@ -1,5 +1,5 @@
 {
-    "name": "2ends/apigility-base",
+    "name": "jhonmike/apigility-base",
     "description": "Abstracts help class for zend 2",
     "type": "library",
     "keywords": ["apigility","rest","base","resource","mapper","abstract","zend"],
@@ -8,8 +8,8 @@
     "authors": [
         {
             "name": "Jhon Mike Soares",
-            "email": "jhon@2ends.com.br",
-            "homepage": "http://www.2ends.com.br",
+            "email": "developer@jhonmike.com.br",
+            "homepage": "http://www.jhonmike.com.br",
             "role": "Developer"
         }
     ],
