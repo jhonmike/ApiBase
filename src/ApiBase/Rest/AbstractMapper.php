@@ -20,7 +20,7 @@ abstract class AbstractMapper
 		if (count($data) > 0)
 			$resultSet->where($data);
 		
-		//echo $this->sql->getSqlstringForSqlObject($resultSet); exit();
+		// echo $this->sql->getSqlstringForSqlObject($resultSet); exit();
 
 		$statement = $this->sql->prepareStatementForSqlObject($resultSet);
 		return $statement->execute();

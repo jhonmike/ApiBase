@@ -1,6 +1,6 @@
 {
     "name": "jhonmike/apigility-base",
-    "description": "Abstracts help class for zend 2",
+    "description": "Abstracts help class for resouce apigility/zend2",
     "type": "library",
     "keywords": ["apigility","rest","base","resource","mapper","abstract","zend"],
     "homepage": "https://github.com/jhonmike/ApiBase",
